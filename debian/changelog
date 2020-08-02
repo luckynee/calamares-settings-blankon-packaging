@@ -1,23 +1,22 @@
-calamares-settings-debian (10.0.25-1) unstable; urgency=medium
+calamares-settings-debian (10.0.20-1+deb10u3) buster; urgency=medium
 
-  * New upstream release
-    - Refine fix for initramfs permissions, only apply
-      when encryption is enabled
+  * Use xdg-user-dir to specify Desktop directory
+    (Closes: #959541)
 
- -- Jonathan Carter <jcc@debian.org>  Fri, 05 Jul 2019 17:37:33 +0200
+ -- Jonathan Carter <jcc@debian.org>  Wed, 15 Jul 2020 18:15:49 +0200
 
-calamares-settings-debian (10.0.24-1) unstable; urgency=medium
+calamares-settings-debian (10.0.20-1+deb10u2) buster; urgency=medium
 
-  * New upstream release
-    - Fix path in previous CVE bug fix
+  * Fix type in previous entry (s/desk/disk)
+  * Enable displaymanager module, fixing autologin options
+    (Closes: #934503, #934504)
 
- -- Jonathan Carter <jcc@debian.org>  Wed, 03 Jul 2019 13:29:07 +0000
+ -- Jonathan Carter <jcc@debian.org>  Wed, 15 Jul 2020 17:15:11 +0200
 
-calamares-settings-debian (10.0.23-1) unstable; urgency=medium
+calamares-settings-debian (10.0.20-1+deb10u1) buster; urgency=medium
 
-  * New upstream release
-    -  Fixes permissions for initramfs image (CVE-2019-13179)
-       (Closes: #931373)
+  * Fix permissions for initramfs image when full-disk encryption
+    is enabled. (CVE-2019-13179) (Closes: #931373)
 
  -- Jonathan Carter <jcc@debian.org>  Wed, 03 Jul 2019 13:05:47 +0000
 

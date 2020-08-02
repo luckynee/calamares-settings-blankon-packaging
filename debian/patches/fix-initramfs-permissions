@@ -1,0 +1,26 @@
+Description: fix umask for initramfs permissions
+ By default, initramfs is world-readable. This configures a snippet
+ to ensure that the initramfs that will be generated is only accessable
+ by root.
+Author: Jonathan Carter <jcc@debian.org>
+Bug-Debian: https://bugs.debian.org/931373
+Bug: https://github.com/calamares/calamares/issues/1191
+Last-Update: 2019-07-08
+
+--- calamares-settings-debian-10.0.20.orig/scripts/bootloader-config
++++ calamares-settings-debian-10.0.20/scripts/bootloader-config
+@@ -2,6 +2,14 @@
+ 
+ CHROOT=$(mount | grep proc | grep calamares | awk '{print $3}' | sed -e "s#/proc##g")
+ 
++# Set secure permissions for the initramfs if we're configuring
++# full-disk-encryption. The initramfs is re-generated later in the
++# installation process so we only set the permissions snippet without
++# regenerating the initramfs right now:
++if [ "$(mount | grep $CHROOT" " | cut -c -16)" = "/dev/mapper/luks" ]; then
++    echo "UMASK=0077" > $CHROOT/etc/initramfs-tools/conf.d/initramfs-permissions
++fi
++
+ echo "Running bootloader-config..."
+ 
+ if [ -d /sys/firmware/efi/efivars ]; then

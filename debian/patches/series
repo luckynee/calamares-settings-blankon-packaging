@@ -1,0 +1,3 @@
+fix-initramfs-permissions
+enable-displaymanagers-module
+use-xdg-user-dir
