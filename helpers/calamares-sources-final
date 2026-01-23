@@ -6,7 +6,7 @@
 CHROOT=$(mount | grep proc | grep calamares | awk '{print $3}' | sed -e "s#/proc##g")
 RELEASE="verbeek"
 
-cat <<EOF > $CHROOT/etc/apt/blankon.sources
+cat <<EOF > $CHROOT/etc/apt/sources.list.d/blankon.sources
 Types: deb deb-src
 URIs: http://arsip-dev.blankonlinux.id/dev/
 Suites: $RELEASE
