@@ -1,0 +1,18 @@
+#!/bin/sh
+#
+# Writes the final sources.list file
+#
+
+CHROOT=$(mount | grep proc | grep calamares | awk '{print $3}' | sed -e "s#/proc##g")
+RELEASE="verbeek"
+
+cat <<EOF > $CHROOT/etc/apt/blankon.sources
+Types: deb deb-src
+URIs: http://arsip-dev.blankonlinux.id/dev/
+Suites: $RELEASE
+Components: main extras restricted restricted-firmware
+Signed-By: /usr/share/keyrings/blankon-archive-keyring.gpg
+
+EOF
+
+exit 0
