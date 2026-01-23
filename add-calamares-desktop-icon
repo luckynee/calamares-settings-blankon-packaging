@@ -1,5 +1,5 @@
 #!/bin/sh
-# Creates an "Install Debian" icon on the live session tested with:
+# Creates an "Install BlankOn" icon on the live session tested with:
 # Xfce, LXDE, LXqt, Gnome, KDE, Mate, Cinnamon
 
 # We query xdg-user-dir because the Desktop directory has different
@@ -10,30 +10,30 @@ DESKTOP=$(xdg-user-dir DESKTOP)
 # creation script.
 mkdir -p $DESKTOP
 
-# Among the Debian desktop environments, LXDE is the only one
+# Among the BlankOn desktop environments, LXDE is the only one
 # that behaves completely different.
 if [ -f /usr/bin/lxsession ]; then
-    echo "[Desktop Entry]" > $DESKTOP/calamares-install-debian.desktop
-    echo "Type=Link" >> $DESKTOP/calamares-install-debian.desktop
-    echo "Name=Install Debian" >> $DESKTOP/calamares-install-debian.desktop
-    echo "Icon=install-debian" >> $DESKTOP/calamares-install-debian.desktop
-    echo "URL=/usr/share/applications/calamares-install-debian.desktop" \
-          >> $DESKTOP/calamares-install-debian.desktop
+    echo "[Desktop Entry]" > $DESKTOP/calamares-install-blankon.desktop
+    echo "Type=Link" >> $DESKTOP/calamares-install-blankon.desktop
+    echo "Name=Install BlankOn" >> $DESKTOP/calamares-install-blankon.desktop
+    echo "Icon=install-blankon" >> $DESKTOP/calamares-install-blankon.desktop
+    echo "URL=/usr/share/applications/calamares-install-blankon.desktop" \
+          >> $DESKTOP/calamares-install-blankon.desktop
 else
-    cp /usr/share/applications/calamares-install-debian.desktop $DESKTOP
+    cp /usr/share/applications/calamares-install-blankon.desktop $DESKTOP
     # Xfce needs this executable otherwise it complains, everything
     # else doesn't seem to care either way.
-    chmod +x $DESKTOP/calamares-install-debian.desktop
+    chmod +x $DESKTOP/calamares-install-blankon.desktop
 fi
 
 # Set desktop launcher as trusted under Xfce (See: #1037299)
 if [ "$XDG_CURRENT_DESKTOP" = "XFCE" ]; then
-    gio set --type=string ~/Desktop/calamares-install-debian.desktop \
+    gio set --type=string ~/Desktop/calamares-install-blankon.desktop \
         metadata::trusted true
-    gio set --type=string ~/Desktop/calamares-install-debian.desktop \
+    gio set --type=string ~/Desktop/calamares-install-blankon.desktop \
         metadata::xfce-exe-checksum \
-        "$(sha256sum ~/Desktop/calamares-install-debian.desktop | cut -f1 -d' ')"
-    touch ~/Desktop/calamares-install-debian.desktop
+        "$(sha256sum ~/Desktop/calamares-install-blankon.desktop | cut -f1 -d' ')"
+    touch ~/Desktop/calamares-install-blankon.desktop
 fi
 
 # Preload calamares binaries and libraries using idle disk cycles

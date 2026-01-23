@@ -1,3 +1,11 @@
+calamares-settings-blankon (14.0.2-1blankon1) UNRELEASED; urgency=medium
+
+  * Fork from debian
+  * BlankOn branding
+  * Modernize archive sources
+
+ -- Lucky Mahendra Purba <luckymahendra080503@gmail.com>  Fri, 23 Jan 2026 11:47:17 +0000
+
 calamares-settings-debian (14.0.2-1) unstable; urgency=medium
 
   * New release

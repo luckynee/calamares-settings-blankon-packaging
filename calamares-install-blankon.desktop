@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Install BlankOn
+GenericName=Calamares Installer
+Exec=install-blankon
+Comment=Calamares — Installer for BlankOn Live
+Keywords=calamares;system;install;blankon;installer
+Icon=install-blankon
+Terminal=false
+Categories=Qt;System;
+StartupWMClass=calamares
+StartupNotify=True

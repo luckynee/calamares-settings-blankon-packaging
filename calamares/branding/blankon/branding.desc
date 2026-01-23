@@ -1,0 +1,37 @@
+---
+componentName:   blankon
+welcomeStyleCalamares: true
+welcomeExpandingLogo: true
+windowExpanding: normal
+windowSize: 800px,520px
+windowPlacement: center
+
+strings:
+    productName:         BlankOn GNU/Linux
+    shortProductName:    BlankOn
+    version:             12 (verbeek)
+    shortVersion:        12
+    versionedName:       BlankOn 12 (verbeek)
+    shortVersionedName:  BlankOn 12
+    bootloaderEntryName: BlankOn
+    productUrl:          https://blankon.github.io/
+    supportUrl:          https://blankon.github.io/
+    knownIssuesUrl:      https://github.com/BlankOn/revival/issues
+    releaseNotesUrl:     https://blankon.github.io/
+    donateUrl:           https://blankon.github.io/
+
+images:
+    productLogo:         "blankon-logo.png"
+    productIcon:         "blankon-logo.png"
+    productWelcome:      "welcome.png"
+    # productWallpaper:  "wallpaper.png"
+
+slideshow:               "show.qml"
+
+style:
+   sidebarBackground:    "#2c3133"
+   sidebarText:          "#FFFFFF"
+   sidebarTextSelect:    "#4d7079"
+   sidebarTextSelect:    "#292F34"
+
+slideshowAPI: 2
