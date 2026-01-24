@@ -1,0 +1,57 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Lucky Mahendra Purba <luckymahendra080503@gmail.com>
+Date: Jan, 24 2026 15:42:53 +0000
+Subject: [PATCH] <short summary of the patch>
+
+TODO: Put a short summary on the line above and replace this paragraph
+with a longer explanation of this change. Complete the meta-information
+with other relevant fields (see below for details). To make it easier, the
+information below has been extracted from the changelog. Adjust it or drop
+it.
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout https://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: (upstream|backport|vendor|other), (<patch-url>|commit:<commit-id>)
+Bug: <upstream-bugtracker-url>
+Bug-<Vendor>: <vendor-bugtracker-url>
+Forwarded: (no|not-needed|<patch-forwarded-url>)
+Applied-Upstream: <version>, (<commit-url>|commit:<commid-id>)
+Reviewed-By: <name and email of someone who approved/reviewed the patch>
+
+--- calamares-settings-blankon-14.0.2.orig/calamares/modules/partition.conf
++++ calamares-settings-blankon-14.0.2/calamares/modules/partition.conf
+@@ -72,11 +72,11 @@ efi:
+ # as well (later in the exec phase) so that the swap file is
+ # actually created.
+ userSwapChoices:
+-    - none      # Create no swap, use no swap
++    - file      # To swap file instead of partition
+     - small     # Up to 4GB
+     - suspend   # At least main memory size
++    - none      # Create no swap, use no swap
+     # - reuse     # Re-use existing swap, but don't create any (unsupported right now)
+-    - file      # To swap file instead of partition
+ 
+ # This optional setting specifies the name of the swap partition (see
+ # PARTLABEL; gpt only; requires KPMCore >= 4.2.0).
+@@ -154,7 +154,7 @@ initialPartitioningChoice: none
+ #
+ # The default is "none" (no swap) if that is one of the enabled options, otherwise
+ # one of the items from the options.
+-initialSwapChoice: none
++initialSwapChoice: file
+ 
+ # armInstall
+ #
+@@ -336,7 +336,7 @@ lvm:
+ #       size: 3G
+ #       minSize: 1.5G
+ #       features:
+-#         64bit: false
++p#         64bit: false
+ #         casefold: true
+ #     - name: "data"
+ #       filesystem: "fat32"

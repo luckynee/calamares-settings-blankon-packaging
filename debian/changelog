@@ -1,3 +1,9 @@
+calamares-settings-blankon (14.0.2-1blankon3) verbeek; urgency=medium
+
+  * Force swapfile as default for all installations
+
+ -- Lucky Mahendra Purba <luckymahendra080503@gmail.com>  Sat, 24 Jan 2026 15:36:36 +0000
+
 calamares-settings-blankon (14.0.2-1blankon2) verbeek; urgency=medium
 
   * Fork from debian
