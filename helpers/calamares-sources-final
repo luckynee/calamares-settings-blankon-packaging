@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Writes the final sources.list file
+# Writes the final sources configuration file in DEB822 format
 #
 
 CHROOT=$(mount | grep proc | grep calamares | awk '{print $3}' | sed -e "s#/proc##g")
@@ -14,5 +14,11 @@ Components: main extras restricted restricted-firmware
 Signed-By: /usr/share/keyrings/blankon-archive-keyring.gpg
 
 EOF
+
+# Remove legacy sources.list if it exists to ensure clean APT configuration
+if [ -f "$CHROOT/etc/apt/sources.list" ]; then
+    echo "Removing legacy /etc/apt/sources.list"
+    rm -f "$CHROOT/etc/apt/sources.list"
+fi
 
 exit 0
