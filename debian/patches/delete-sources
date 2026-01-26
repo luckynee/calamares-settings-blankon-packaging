@@ -1,0 +1,55 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Lucky Mahendra Purba <luckymahendra080503@gmail.com>
+Date: Jan, 25 2026 15:23:10 +0000
+Subject: [PATCH] <short summary of the patch>
+
+TODO: Put a short summary on the line above and replace this paragraph
+with a longer explanation of this change. Complete the meta-information
+with other relevant fields (see below for details). To make it easier, the
+information below has been extracted from the changelog. Adjust it or drop
+it.
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout https://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: (upstream|backport|vendor|other), (<patch-url>|commit:<commit-id>)
+Bug: <upstream-bugtracker-url>
+Bug-<Vendor>: <vendor-bugtracker-url>
+Forwarded: (no|not-needed|<patch-forwarded-url>)
+Applied-Upstream: <version>, (<commit-url>|commit:<commid-id>)
+Reviewed-By: <name and email of someone who approved/reviewed the patch>
+
+--- calamares-settings-blankon-14.0.2.orig/calamares-install-blankon.desktop
++++ calamares-settings-blankon-14.0.2/calamares-install-blankon.desktop
+@@ -3,7 +3,7 @@ Type=Application
+ Version=1.0
+ Name=Install BlankOn
+ GenericName=Calamares Installer
+-Exec=install-blankon
++Exec=calamares-install-blankon
+ Comment=Calamares — Installer for BlankOn Live
+ Keywords=calamares;system;install;blankon;installer
+ Icon=install-blankon
+--- calamares-settings-blankon-14.0.2.orig/helpers/calamares-sources-final
++++ calamares-settings-blankon-14.0.2/helpers/calamares-sources-final
+@@ -1,6 +1,6 @@
+ #!/bin/sh
+ #
+-# Writes the final sources.list file
++# Writes the final sources configuration file in DEB822 format
+ #
+ 
+ CHROOT=$(mount | grep proc | grep calamares | awk '{print $3}' | sed -e "s#/proc##g")
+@@ -15,4 +15,10 @@ Signed-By: /usr/share/keyrings/blankon-a
+ 
+ EOF
+ 
++# Remove legacy sources.list if it exists to ensure clean APT configuration
++if [ -f "$CHROOT/etc/apt/sources.list" ]; then
++    echo "Removing legacy /etc/apt/sources.list"
++    rm -f "$CHROOT/etc/apt/sources.list"
++fi
++
+ exit 0
