@@ -1,3 +1,9 @@
+calamares-settings-blankon (14.0.2-1blankon4) verbeek; urgency=medium
+
+  * Force delete sources.list
+
+ -- Lucky Mahendra Purba <luckymahendra080503@gmail.com>  Sat, 31 Jan 2026 06:57:26 +0000
+
 calamares-settings-blankon (14.0.2-1blankon3) verbeek; urgency=medium
 
   * Force swapfile as default for all installations
